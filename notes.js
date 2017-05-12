@@ -15,3 +15,10 @@ document.addEventListener("keydown", function(e) {
 
 // https://css-tricks.com/snippets/javascript/javascript-keycodes/
 e.which is widely used over e.keyCode
+
+// edge case for caps lock
+// only keyup event is fired when the caps lock is being released
+
+// edge case for "shift" key
+// since it is used to get to a key's 'shifted character'
+// i.e. 1 and ! || 2 and @

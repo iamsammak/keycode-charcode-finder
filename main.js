@@ -192,8 +192,10 @@ document.addEventListener("keyup", function(e) {
     document.querySelector('.charcode-display').innerHTML = "n/a";
   }
 
-  // duplicated from keydown for special keys like "caps lock" which sometimes only trigger a keyup event
-  document.querySelector('.keycode-display').innerHTML = e.which;
-  document.querySelector('.text-display').innerHTML = writtenKeyCodes[e.which] || e.key;
-  console.log("keyup");
+  // edge case for caps lock - only fires a keyup upon "releasing caps lock"
+  if (e.which === 20) {
+    document.querySelector('.keycode-display').innerHTML = e.which;
+    document.querySelector('.text-display').innerHTML = writtenKeyCodes[e.which] || e.key;
+  }
+  console.log(`keyup : keycode is ${e.which} & key is ${e.key}`);
 });
